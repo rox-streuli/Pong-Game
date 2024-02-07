@@ -1,6 +1,6 @@
-from turtle import Screen
-from turtle import Turtle
+from turtle import Screen, Turtle
 from paddle import Paddle
+from ball import Ball
 
 # constants
 LINE_SETUP_START = -300
@@ -33,10 +33,14 @@ for _ in range(30):
     board_line.penup()
     board_line.forward(10)
 
+# crate paddles
 paddle_1 = Paddle(START_POSITION_PADDLE_1)
 paddle_2 = Paddle(START_POSITION_PADDLE_2)
 
-# update sscreen to show board
+# create ball
+ball = Ball()
+
+# update screen to show board
 board.update()
 
 board.listen()
