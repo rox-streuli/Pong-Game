@@ -8,6 +8,9 @@ class Ball(Turtle):
         self.penup()
         self.color('white')
 
+    def move(self):
+        self.forward(20)
+
     def bounce_on_paddle(self):
         direction = self.heading()
         if direction < 90:
