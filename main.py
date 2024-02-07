@@ -22,7 +22,6 @@ board_line.pensize(3)
 board_line.pencolor('white')
 board_line.hideturtle()
 board_line.penup()
-board_line.speed('fastest')
 board_line.setposition(0, LINE_SETUP_START)
 board_line.setheading(90)
 
@@ -52,9 +51,15 @@ board.onkey(paddle_1.move_down, key='Down')
 board.onkey(paddle_2.move_up, key='a')
 board.onkey(paddle_2.move_down, key='z')
 
+# update game add turn on .tracer()
+
+# board.tracer(1)
+
 game_on = True
-board.tracer(1)
+
 while game_on:
+    ball.move()
     board.update()
+
 
 board.exitonclick()
