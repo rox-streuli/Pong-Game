@@ -11,6 +11,12 @@ class Ball(Turtle):
     def move(self):
         self.forward(20)
 
+    def detect_collision_with_wall(self):
+        pass
+
+    def detect_collision_with_paddle(self):
+        pass
+
     def bounce_on_paddle(self):
         direction = self.heading()
         if direction < 90:
