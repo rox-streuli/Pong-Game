@@ -7,10 +7,12 @@ import time
 LINE_SETUP_START = -300
 START_POSITION_PADDLE_1 = -400, 0
 START_POSITION_PADDLE_2 = 400, 0
+HEIGHT= 600
+WIDTH = 900
 
 # create board
 board = Screen()
-board.setup(height=600, width=900)
+board.setup(width=WIDTH, height=HEIGHT)
 board.bgcolor('black')
 board.title("Pong")
 
