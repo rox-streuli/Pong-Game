@@ -1,6 +1,7 @@
 from turtle import Screen, Turtle
 from paddle import Paddle
 from ball import Ball
+import time
 
 # constants
 LINE_SETUP_START = -300
@@ -58,6 +59,7 @@ board.onkey(paddle_2.move_down, key='z')
 game_on = True
 
 while game_on:
+    time.sleep(0.1)
     ball.move()
     board.update()
 
