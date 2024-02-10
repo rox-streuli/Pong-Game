@@ -8,6 +8,7 @@ class Ball(Turtle):
         self.shape('circle')
         self.penup()
         self.color('white')
+        self.random_heading()
 
     def random_heading(self):
         self.setheading(randint(1, 50))
