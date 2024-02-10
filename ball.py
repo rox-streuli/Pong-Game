@@ -1,5 +1,5 @@
 from turtle import Turtle
-from random import randint
+from random import randint, choice
 
 class Ball(Turtle):
     """Instantiate ball. Inherits from Turtle class."""
@@ -8,13 +8,11 @@ class Ball(Turtle):
         self.shape('circle')
         self.penup()
         self.color('white')
-        self.random_heading()
-
-    def random_heading(self):
-        self.setheading(randint(1, 50))
 
     def move(self):
-        self.forward(20)
+        new_x = self.xcor() + 5
+        new_y = self.ycor() + 5
+        self.goto(new_x, new_y)
 
     def bounce_on_paddle(self):
         direction = self.heading()
@@ -27,7 +25,6 @@ class Ball(Turtle):
         elif 180 < direction < 270 or direction < 90:
             new_direction = direction + 90
         self.setheading(new_direction)
-        self.move()
 
     def bounce_on_wall(self):
         direction = self.heading()
@@ -42,4 +39,3 @@ class Ball(Turtle):
         elif direction > 180:
             new_direction = 360 - direction
         self.setheading(new_direction)
-        self.move()
