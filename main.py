@@ -54,15 +54,12 @@ board.onkey(paddle_1.move_down, key='Down')
 board.onkey(paddle_2.move_up, key='a')
 board.onkey(paddle_2.move_down, key='z')
 
-# update game add turn on .tracer()
-
-# board.tracer(1)
-
 game_on = True
 
 while game_on:
     time.sleep(0.1)
     ball.move()
+
     board.update()
 
 
