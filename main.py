@@ -5,6 +5,7 @@ import time
 
 # constants
 LINE_SETUP_START = -300
+WALL_BOUNDARIES = -450, 450
 START_POSITION_PADDLE_1 = -400, 0
 START_POSITION_PADDLE_2 = 400, 0
 HEIGHT= 600
@@ -60,6 +61,7 @@ while game_on:
     time.sleep(0.1)
     ball.move()
 
+    if
     board.update()
 
 
