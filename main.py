@@ -67,15 +67,13 @@ while game_on:
         ball.bounce_on_paddle()
 
     # point if misses paddle bounce if hits wall
-    ball_x_position = ball.xcor()
-    ball_y_position = ball.ycor()
-    if ball_y_position > 440:
+    if ball.ycor() > 440:
         # point player 1
         pass
-    if ball_y_position > -440:
+    if ball.ycor() > -440:
         # point player 2
         pass
-    if - 290 < ball_x_position > 290:
+    if - 290 < ball.xcor() > 290:
         ball.bounce_on_wall()
 
 board.exitonclick()
