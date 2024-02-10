@@ -10,8 +10,8 @@ class Ball(Turtle):
         self.color('white')
 
     def move(self):
-        new_x = self.xcor() + 5
-        new_y = self.ycor() + 5
+        new_x = self.xcor() + 10
+        new_y = self.ycor() + 10
         self.goto(new_x, new_y)
 
     def bounce_on_paddle(self):
