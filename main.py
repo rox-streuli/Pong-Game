@@ -57,13 +57,13 @@ board.onkey(paddle_2.move_down, key='z')
 game_on = True
 
 while game_on:
-    board.update()
     time.sleep(0.1)
+    board.update()
     ball.move()
     # bounce back if hits paddle
     if paddle_1.distance(ball) < 15:
         ball.bounce_on_paddle()
-    elif paddle_2.distance(ball) < 15:
+    if paddle_2.distance(ball) < 15:
         ball.bounce_on_paddle()
 
     # point if misses paddle bounce if hits wall
@@ -72,10 +72,10 @@ while game_on:
     if ball_y_position > 440:
         # point player 1
         pass
-    elif ball_y_position > -440:
+    if ball_y_position > -440:
         # point player 2
         pass
-    elif - 290 < ball_x_position > 290:
+    if - 290 < ball_x_position > 290:
         ball.bounce_on_wall()
 
 board.exitonclick()
