@@ -1,4 +1,5 @@
 from turtle import Turtle
+from random import randint
 
 class Ball(Turtle):
     """Instantiate ball. Inherits from Turtle class."""
@@ -7,7 +8,9 @@ class Ball(Turtle):
         self.shape('circle')
         self.penup()
         self.color('white')
-        self.setheading(10)
+
+    def random_heading(self):
+        self.setheading(randint(1, 50))
 
     def move(self):
         self.forward(20)
