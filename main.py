@@ -2,6 +2,7 @@ from turtle import Screen, Turtle
 from board_line import Board_line
 from paddle import Paddle
 from ball import Ball
+from score import Scoreboard
 import time
 
 # constants
@@ -15,6 +16,9 @@ board = Screen()
 board.setup(width=WIDTH, height=HEIGHT)
 board.bgcolor('black')
 board.title("Pong")
+
+# Creade scoreboard banner
+scoreboard = Scoreboard()
 
 # turn off tracer
 board.tracer(0)
@@ -33,12 +37,12 @@ ball = Ball()
 board.listen()
 
 # Collect key-events for paddle_1
-board.onkey(paddle_1.move_up, key='Up')
-board.onkey(paddle_1.move_down, key='Down')
+board.onkey(paddle_1.move_up, key='a')
+board.onkey(paddle_1.move_down, key='z')
 
 # Collect key-events for paddle_2
-board.onkey(paddle_2.move_up, key='a')
-board.onkey(paddle_2.move_down, key='z')
+board.onkey(paddle_2.move_up, key='Up')
+board.onkey(paddle_2.move_down, key='Down')
 
 game_on = True
 
@@ -56,11 +60,13 @@ while game_on:
             paddle_2.distance(ball) < 50 and ball.xcor() > 380:
         ball.bounce_on_paddle()
 
-    # point if misses paddle bounce if hits wall
-    if ball.ycor() > 440:
+    # Point for oposite player if paddle do not hit ball
+    if ball.xcor() > 440:
+        # reset ball to start point
         # point player 1
         pass
-    if ball.ycor() > -440:
+    elif ball.xcor() > -440:
+        # reset ball to start point
         # point player 2
         pass
 
