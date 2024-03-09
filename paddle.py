@@ -10,6 +10,7 @@ class Paddle(Turtle):
         self.penup()
         self.shapesize(5, 1)
         self.goto(start_position)
+        self.speed(7)
         self.showturtle()
 
     def move_up(self):
