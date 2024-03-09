@@ -8,6 +8,8 @@ class Paddle(Turtle):
         self.shape('square')
         self.color('white')
         self.penup()
+        # Set shapesize(stretch_wid=None, stretch_len=None, outline=None)
+        # it will be the equivalent to 50 x 20 pixels turtle
         self.shapesize(5, 1)
         self.goto(start_position)
         self.speed(7)
