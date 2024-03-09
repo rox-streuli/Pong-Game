@@ -29,8 +29,7 @@ paddle_2 = Paddle(START_POSITION_PADDLE_2)
 # create ball
 ball = Ball()
 
-# update screen to show board
-# board.update()
+# prapare to listen to key events
 board.listen()
 
 # Collect key-events for paddle_1
@@ -52,10 +51,9 @@ while game_on:
     if ball.ycor() > 280 or ball.ycor() < -280:
         ball.bounce_on_wall()
 
-    # bounce back if hits paddle
-    if paddle_1.distance(ball) < 15:
-        ball.bounce_on_paddle()
-    if paddle_2.distance(ball) < 15:
+    # detect collision with paddle_2
+    if paddle_1.distance(ball) < 50 and ball.xcor() < -380 or \
+            paddle_2.distance(ball) < 50 and ball.xcor() > 380:
         ball.bounce_on_paddle()
 
     # point if misses paddle bounce if hits wall
