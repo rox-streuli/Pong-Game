@@ -10,6 +10,8 @@ START_POSITION_PADDLE_1 = -400, 0
 START_POSITION_PADDLE_2 = 400, 0
 HEIGHT= 600
 WIDTH = 900
+PLAYER_1 = 0
+PLAYER_2 = 0
 
 # create board
 board = Screen()
@@ -19,6 +21,7 @@ board.title("Pong")
 
 # Creade scoreboard banner
 scoreboard = Scoreboard()
+scoreboard.refresh_scoreboard(PLAYER_1, PLAYER_2)
 
 # turn off tracer
 board.tracer(0)
@@ -31,7 +34,10 @@ paddle_1 = Paddle(START_POSITION_PADDLE_1)
 paddle_2 = Paddle(START_POSITION_PADDLE_2)
 
 # create ball
-ball = Ball()
+def new_ball():
+    return Ball()
+
+ball = new_ball()
 
 # prapare to listen to key events
 board.listen()
@@ -60,14 +66,20 @@ while game_on:
             paddle_2.distance(ball) < 50 and ball.xcor() > 380:
         ball.bounce_on_paddle()
 
-    # Point for oposite player if paddle do not hit ball
-    if ball.xcor() > 440:
-        # reset ball to start point
+    # Point for opposite player if paddle misses ball
+    if ball.xcor() > 400:
         # point player 1
-        pass
-    elif ball.xcor() > -440:
-        # reset ball to start point
+        PLAYER_1 += 1
+        # reset ball and refresh score
+        ball = new_ball()
+        scoreboard.refresh_scoreboard(PLAYER_1, PLAYER_2)
+
+    elif ball.xcor() < -400:
         # point player 2
-        pass
+        PLAYER_2 += 1
+        # reset ball and refresh score
+        ball = new_ball()
+        scoreboard.refresh_scoreboard(PLAYER_1, PLAYER_2)
+
 
 board.exitonclick()
