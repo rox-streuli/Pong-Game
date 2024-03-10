@@ -2,6 +2,9 @@ from turtle import Turtle
 
 # constants
 LINE_SETUP_START = -300
+GUIDE_POSITION = (0, -280)
+ALIGMENT = 'center'
+FONT = ('verdana', 10, 'normal')
 
 class Board_line(Turtle):
     """Instantiate board_line. Inherits from Turtle class."""
@@ -19,3 +22,16 @@ class Board_line(Turtle):
             self.forward(10)
             self.penup()
             self.forward(10)
+
+
+class Guide(Turtle):
+    """Instantiate game commands guide."""
+    def __init__(self):
+        super().__init__()
+        self.hideturtle()
+        self.penup()
+        self.goto(GUIDE_POSITION)
+        self.color('lightpink')
+        self.write(f"For paddle_1 press keys 'a' and 'z'. For paddle_2 press "
+                   f"'up and 'down'. Press 'Q' for end game.",
+                   align=ALIGMENT, font=FONT)
