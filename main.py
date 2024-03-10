@@ -12,6 +12,15 @@ HEIGHT= 600
 WIDTH = 900
 PLAYER_1 = 0
 PLAYER_2 = 0
+GAME_ON = True
+
+
+def end_game():
+    winner =  "Player 1" if PLAYER_1 > PLAYER_2 else "Player 2"
+    scoreboard.game_over(winner)
+    GAME_ON = False
+    time.sleep(10)
+    board.bye()
 
 # create board
 board = Screen()
@@ -50,9 +59,10 @@ board.onkey(paddle_1.move_down, key='z')
 board.onkey(paddle_2.move_up, key='Up')
 board.onkey(paddle_2.move_down, key='Down')
 
-game_on = True
+# collect event for finish game
+board.onkey(end_game, key='q')
 
-while game_on:
+while GAME_ON:
     time.sleep(0.1)
     board.update()
     ball.move()
