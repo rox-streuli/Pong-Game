@@ -1,5 +1,5 @@
 from turtle import Screen, Turtle
-from board_line import Board_line
+from board_line import Board_line, Guide
 from paddle import Paddle
 from ball import Ball
 from score import Scoreboard
@@ -29,15 +29,15 @@ board.tracer(0)
 # create line in the middle of the board
 line = Board_line()
 
+# Create game help guide
+help_guide = Guide()
+
 # crate paddles
 paddle_1 = Paddle(START_POSITION_PADDLE_1)
 paddle_2 = Paddle(START_POSITION_PADDLE_2)
 
 # create ball
-def new_ball():
-    return Ball()
-
-ball = new_ball()
+ball = Ball()
 
 # prapare to listen to key events
 board.listen()
@@ -71,15 +71,14 @@ while game_on:
         # point player 1
         PLAYER_1 += 1
         # reset ball and refresh score
-        ball = new_ball()
+        ball.reset_ball()
         scoreboard.refresh_scoreboard(PLAYER_1, PLAYER_2)
 
     elif ball.xcor() < -400:
         # point player 2
         PLAYER_2 += 1
         # reset ball and refresh score
-        ball = new_ball()
+        ball.reset_ball()
         scoreboard.refresh_scoreboard(PLAYER_1, PLAYER_2)
-
 
 board.exitonclick()
