@@ -18,8 +18,8 @@ class Scoreboard(Turtle):
                    align=ALIGMENT, font=FONT)
 
     def game_over(self, who):
-        """Write game over message on window."""
+        """Write a winner message on window if player press 'q'."""
         self.goto(0, 0)
         self.clear()
-        self.write(f"**** GAME OVER ****\n PLAYER {who} WINS!", align=ALIGMENT,
+        self.write(f"**** GAME OVER ****\nThe winner is {who}", align=ALIGMENT,
                    font=('verdana', 18, 'normal'))
