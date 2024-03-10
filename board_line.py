@@ -32,6 +32,6 @@ class Guide(Turtle):
         self.penup()
         self.goto(GUIDE_POSITION)
         self.color('lightpink')
-        self.write(f"For paddle_1 press keys 'a' and 'z'. For paddle_2 press "
+        self.write(f"Paddle_1 press keys 'a' and 'z'. Paddle_2 press "
                    f"'up and 'down'. Press 'Q' for end game.",
                    align=ALIGMENT, font=FONT)
