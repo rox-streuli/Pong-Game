@@ -21,5 +21,9 @@ class Scoreboard(Turtle):
         """Write a winner message on window if player press 'q'."""
         self.goto(0, 0)
         self.clear()
-        self.write(f"**** GAME OVER ****\nThe winner is {who}", align=ALIGMENT,
-                   font=('verdana', 18, 'normal'))
+        if who == "DRAW":
+            self.write(f"**** GAME OVER ****\nIt is a {who}",
+                       align=ALIGMENT, font=('verdana', 18, 'normal'))
+        else:
+            self.write(f"**** GAME OVER ****\nThe winner is {who}",
+                       align=ALIGMENT, font=('verdana', 18, 'normal'))
