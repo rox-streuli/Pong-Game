@@ -10,7 +10,7 @@ class Board_line(Turtle):
     """Instantiate board_line. Inherits from Turtle class."""
     def __init__(self):
         super().__init__()
-        self.pensize(3)
+        self.pensize(2)
         self.pencolor('white')
         self.hideturtle()
         self.penup()
