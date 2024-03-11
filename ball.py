@@ -39,9 +39,7 @@ class Ball(Turtle):
         self.x_move *= -1
 
     def reset_ball(self):
-        """Restart the ball in a new position and direction
+        """Reset ball position and invert direction
         after ball go out of the screen."""
-        self.hideturtle()
-        self.home()
-        self.random_tuple_xy()
-        self.showturtle()
+        self.goto(0, 0)
+        self.bounce_on_paddle()
