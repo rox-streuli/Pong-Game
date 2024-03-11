@@ -16,7 +16,13 @@ GAME_ON = True
 
 
 def end_game():
-    winner =  "Player 1" if PLAYER_1 > PLAYER_2 else "Player 2"
+    winner = ""
+    if PLAYER_1 == PLAYER_2:
+        winner = "DRAW"
+    elif PLAYER_1 > PLAYER_2:
+        winner = "Player 1"
+    else:
+        winner =  "Player 2"
     scoreboard.game_over(winner)
     GAME_ON = False
     time.sleep(10)
@@ -63,7 +69,7 @@ board.onkey(paddle_2.move_down, key='Down')
 board.onkey(end_game, key='q')
 
 while GAME_ON:
-    time.sleep(0.1)
+    time.sleep(ball.current_ball_speed)
     board.update()
     ball.move()
 
