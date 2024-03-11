@@ -16,11 +16,13 @@ class Paddle(Turtle):
         self.showturtle()
 
     def move_up(self):
-        """Move paddle up if 'UP' key is pressed."""""
-        y_cor = self.ycor() + 20
-        self.sety(y_cor)
+        """Move paddle up if correct key is pressed."""
+        if self.ycor() < 260:
+            y_cor = self.ycor() + 20
+            self.sety(y_cor)
 
     def move_down(self):
-        """Move paddle down if 'DOWN' key is pressed."""""
-        y_cor = self.ycor() - 20
-        self.sety(y_cor)
+        """Move paddle down if correct key is pressed."""
+        if self.ycor() > -260:
+            y_cor = self.ycor() - 20
+            self.sety(y_cor)
