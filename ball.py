@@ -13,6 +13,7 @@ class Ball(Turtle):
         self.color('white')
         self.x_move = 10
         self.y_move = 10
+        self.current_ball_speed = 0.1
         self.random_tuple_xy()
 
     def random_tuple_xy(self):
@@ -37,9 +38,11 @@ class Ball(Turtle):
     def bounce_on_paddle(self):
         """Invert xcor() when bounce."""
         self.x_move *= -1
+        self.current_ball_speed *= 0.9
 
     def reset_ball(self):
         """Reset ball position and invert direction
         after ball go out of the screen."""
         self.goto(0, 0)
+        self.current_ball_speed = 0.1
         self.bounce_on_paddle()
